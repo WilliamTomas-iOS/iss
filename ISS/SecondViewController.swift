@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class SecondViewController: UIViewController {
 
@@ -15,6 +16,15 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func playStream() {
+        let videoURL = URL(fileURLWithPath: Constants.stream.url)
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+    }
 
 }
 
